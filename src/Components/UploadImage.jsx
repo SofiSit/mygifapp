@@ -1,78 +1,3 @@
-/* import React, { useState } from "react";
-import { Container, Input, FormGroup } from "reactstrap";
-import styled from "styled-components";
-const UploadImage = () => {
-  const [images, setImages] = useState("");
-  const [loading, setLoading] = useState(false);
-
-  const uploadImage = async (e) => {
-    const files = e.target.files;
-    const data = new FormData();
-    data.append("file", files[0]);
-    data.append("upload_preset", "mbgsjubx");
-    setLoading(true);
-    const res = await fetch(
-      "https://api.cloudinary.com/v1_1/dwfbkwpv9/image/upload",
-      {
-        method: "POST",
-        body: data,
-      }
-    );
-    const file = await res.json();
-    setImages(file.secure_url);
-    console.log(file.secure_url);
-    setLoading(false);
-  };
-
-  return (
-    <div
-    className="dropzone"
-    onDragOver={handleDragOver}
-    onDrop={handleDrop}
-  >
-    <input
-      type="file"
-      id="file-input"
-      multiple
-      onChange={handleFileSelect}
-    />
-    <label htmlFor="file-input">Arrastra y suelta archivos aquí o haz clic para seleccionar archivos</label>
-    <ul>
-      {selectedFiles.map((file, index) => (
-        <li key={index}>{file.name}</li>
-      ))}
-    </ul>
-  </div>
-  );
-};
-
-
-
-const UploadStyles = styled.article`
-padding: 2rem;
-background-color: ${(props) => props.theme.colorBg2};
-border-radius: 1rem;
-h2{
-    font-size: 2rem;
-    margin-bottom: 1.5rem;
-    color: ${(props) => props.theme.colorWhite};
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    i{
-        background: linear-gradient(to right, 
-            ${(props) => props.theme.colorBlue2}, 
-            ${(props) => props.theme.colorGreen2}
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-    }
-}
-
-`;
-
-export default UploadImage */
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
@@ -109,10 +34,11 @@ const Dropzone = () => {
   
   
   const removeImage = (url) => {
-    const updatedImages = selectedFiles.filter((file) => file.previewURL !== url);
-    setSelectedFiles(updatedImages);
-    const updatedURLs = updatedImages.map((file) => file.previewURL);
+    const updatedURLs = previewURLs.filter((prevURL) => prevURL !== url);
+    const updatedFiles = selectedFiles.filter((file) => file && file.previewURL !== url);
+  
     setPreviewURLs(updatedURLs);
+    setSelectedFiles(updatedFiles);
     saveImagesToLocalStorage(updatedURLs);
   };
   
