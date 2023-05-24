@@ -4,7 +4,6 @@ import { useGlobal } from '../context/global'
 import { useTheme } from '../context/themeContext'
 import Loader from './Loader'
 import Modal from './Modal'
-import { toast } from 'react-hot-toast'
 
 
 function GiffItem({
@@ -19,6 +18,10 @@ function GiffItem({
     const theme = useTheme()
     //state
     const [modal, setModal] = useState(false)
+
+   /*  const alert =()=>{
+        swal('Add to fav')
+    } */
 
     return (
         <GiffStyled theme={theme}>

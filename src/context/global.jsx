@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useReducer } from "react";
 import { globalReducer } from "../reducers/globalReducer";
 import axios from "axios";
-import toast, { Toaster } from 'react-hot-toast';
 import {
   ADD_TO_FAVORITES,
   GET_CAT,
@@ -11,6 +10,7 @@ import {
   GET_TRENDING,
   LOADING,
 } from "../utils/globalActions";
+import Swal from "sweetalert2";
 
 const apiKey = process.env.REACT_APP_API_KEY;
 const baseUrl = "https://api.giphy.com/v1/gifs";
@@ -28,7 +28,7 @@ export const GlobalProvider = ({ children }) => {
   };
 
   const [state, dispatch] = useReducer(globalReducer, initialState);
-
+//AXIOS A LA API
   //get trending gif
   const getTrending = async () => {
     dispatch({ type: LOADING });
@@ -73,10 +73,19 @@ export const GlobalProvider = ({ children }) => {
         const items = [...storedItems, gif]
         window.localStorage.setItem("myFavourites", JSON.stringify(items));
         dispatch({type: ADD_TO_FAVORITES, payload: gif});
-        toast.success('Successfully created!');
+        Swal.fire(
+          'Good election!',
+          'You have a new favorite gif!',
+          'success'
+        )
         console.log('done')
     }else{
-        alert('Already Exist');
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Its alredy  favorite!',
+        
+      })
     }
 }
 

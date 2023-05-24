@@ -151,6 +151,7 @@ padding:22px;
     margin: 5px;
   }
   form {
+    display: flex;
     width: 100%;
     .input-control {
       position: relative;
