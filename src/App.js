@@ -1,9 +1,9 @@
-import { useState } from "react";
+ import { useState } from "react";
 import styled from "styled-components";
 import Button from "./Components/Button";
 import Header from "./Components/Header";
 import Favorites from "./Components/Favorites";
-import Random from "./Components/Random";
+import Babys from "./Components/Babys";
 import Search from "./Components/Search";
 import Trending from "./Components/Trending";
 import { useGlobal } from "./context/global";
@@ -24,8 +24,8 @@ function App() {
         return <Trending />
       case 'liked':
         return <Favorites rendered={rendered} />
-      case 'random':
-        return <Random />
+      case 'babys':
+        return <Babys />
       case 'search':
         return <Search />
         case 'cat':
@@ -66,7 +66,7 @@ function App() {
           name={'Babys Gif'}
           icon={<i class="fa-solid fa-baby"></i>}
           onClick={() => {
-            setRendered('random')
+            setRendered('babys')
             randomGiff()
           }}
         />
@@ -106,4 +106,5 @@ const AppStyled = styled.div`
   }
 `;
 
-export default App;
+export default App;  
+

@@ -23,7 +23,7 @@ export const GlobalProvider = ({ children }) => {
     searchResults: [],
     trending: [],
     favorites: [],
-    random: {},
+    babys: {},
     cat: [],
   };
 
@@ -38,7 +38,7 @@ export const GlobalProvider = ({ children }) => {
     );
     dispatch({ type: GET_TRENDING, payload: res.data.data });
   };
-  //random giff
+  //babys giff
   const randomGiff = async () => {
     dispatch({ type: LOADING });
     const res = await axios.get(`${baseUrl}/search?q=babys&api_key=${apiKey}`);
