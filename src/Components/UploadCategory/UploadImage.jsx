@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
 import { useTheme } from '../../context/themeContext';
-import Button from '../Buttons/Button';
 
 const Dropzone = () => {
 
@@ -190,6 +189,8 @@ h2{
   }
   .dropzone {
     display: flex;
+    flex-directon: row;
+    flex-wrap: wrap;
     border: 2px dashed #ccc;
     padding: 20px;
     text-align: center;
