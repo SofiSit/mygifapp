@@ -1,9 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useGlobal } from '../context/global';
-import { useTheme } from '../context/themeContext';
-import GiffItem from './GiffItem';
-import Loader from './Loader';
+import { useGlobal } from '../../context/global';
+import { useTheme } from '../../context/themeContext';
+import GiffItem from '../Giffs/GiffItem';
+import Loader from '../Loader/Loader';
 import Masonry from 'react-masonry-css';
 
 function Random() {

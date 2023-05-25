@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import { useGlobal } from '../context/global'
-import { useTheme } from '../context/themeContext'
-import Loader from './Loader'
-import Modal from './Modal'
+import { useGlobal } from '../../context/global'
+import { useTheme } from '../../context/themeContext'
+import Loader from '../Loader/Loader'
+import Modal from '../Modal/Modal'
 
 
 function GiffItem({

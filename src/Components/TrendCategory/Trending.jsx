@@ -1,17 +1,17 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useGlobal } from '../context/global'
-import GiffItem from './GiffItem'
+import { useGlobal } from '../../context/global'
+import GiffItem from '../Giffs/GiffItem'
 import Masonry from 'react-masonry-css'
-import { useTheme } from '../context/themeContext'
-import Loader from './Loader'
+import { useTheme } from '../../context/themeContext'
+import Loader from '../Loader/Loader'
 
 
-const catito = <i className="fa-solid fa-cat" ></i>
+const trend = <i className="fa-solid fa-arrow-trend-up"></i>
 
-function Cats() {
+function Trending() {
 
-    const {cat, loading} = useGlobal()
+    const {trending, loading} = useGlobal()
     const theme = useTheme()
 
 
@@ -24,7 +24,7 @@ function Cats() {
 
     return (
         <TrendingStyled theme={theme}>
-            <h2>{catito}Cats Gif</h2>
+            <h2>{trend}Trending</h2>
             {loading && <Loader />}
             <Masonry
                 breakpointCols={breakpointColumnsObj}
@@ -33,7 +33,7 @@ function Cats() {
             >
                 
                 {
-                    cat.map((giff) => {
+                    trending.map((giff) => {
                         return <GiffItem key={giff.id} {...giff} giffItem={giff} />
                     })
                 }
@@ -80,4 +80,4 @@ const TrendingStyled = styled.article`
     }
 `;
 
-export default Cats
+export default Trending

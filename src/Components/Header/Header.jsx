@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { useTheme } from "../context/themeContext";
-import { useGlobal } from "../context/global";
+import { useTheme } from "../../context/themeContext";
+import { useGlobal } from "../../context/global";
 
 const search = <i className="fa-solid fa-magnifying-glass"></i>;
 

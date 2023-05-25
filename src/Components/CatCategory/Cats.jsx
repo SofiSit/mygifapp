@@ -1,45 +1,48 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useGlobal } from '../context/global'
-import GiffItem from './GiffItem'
+import { useGlobal } from '../../context/global'
+import GiffItem from '../Giffs/GiffItem'
 import Masonry from 'react-masonry-css'
-import { useTheme } from '../context/themeContext'
-import Loader from './Loader'
+import { useTheme } from '../../context/themeContext'
+import Loader from '../Loader/Loader'
 
-const list = <i className="fa-solid fa-list"></i>
 
-function Search() {
+const catito = <i className="fa-solid fa-cat" ></i>
 
-    const {searchResults, loading} = useGlobal()
+function Cats() {
+
+    const {cat, loading} = useGlobal()
     const theme = useTheme()
+
 
     const breakpointColumnsObj = {
         default: 4,
-        1100: 3,
-        700: 2,
+        1400: 3,
+        977: 2,
         500: 1
     };
 
     return (
-        <SearchStyled theme={theme}>
-            <h2>{list}Search Results</h2>
+        <TrendingStyled theme={theme}>
+            <h2>{catito}Cats Gif</h2>
             {loading && <Loader />}
             <Masonry
                 breakpointCols={breakpointColumnsObj}
                 className="my-masonry-grid"
                 columnClassName="my-masonry-grid_column"
             >
+                
                 {
-                    searchResults.map((giff) => {
+                    cat.map((giff) => {
                         return <GiffItem key={giff.id} {...giff} giffItem={giff} />
                     })
                 }
             </Masonry>
-        </SearchStyled>
+        </TrendingStyled>
     )
 }
 
-const SearchStyled = styled.article`
+const TrendingStyled = styled.article`
     padding: 2rem;
     background-color: ${(props) => props.theme.colorBg2};
     border-radius: 1rem;
@@ -77,4 +80,4 @@ const SearchStyled = styled.article`
     }
 `;
 
-export default Search
+export default Cats

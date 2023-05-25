@@ -1,15 +1,15 @@
  import { useState } from "react";
 import styled from "styled-components";
-import Button from "./Components/Button";
-import Header from "./Components/Header";
-import Favorites from "./Components/Favorites";
-import Babys from "./Components/Babys";
-import Search from "./Components/Search";
-import Trending from "./Components/Trending";
+import Button from "./Components/Buttons/Button";
+import Header from "./Components/Header/Header";
+import Favorites from "./Components/FavCategory/Favorites";
+import Babys from "./Components/BabysCategory/Babys";
+import Search from "./Components/Search/Search";
+import Trending from "./Components/TrendCategory/Trending";
 import { useGlobal } from "./context/global";
 import { useTheme } from "./context/themeContext";
-import Cats from "./Components/Cats";
-import UploadImage from "./Components/UploadImage";
+import Cats from "./Components/CatCategory/Cats";
+import UploadImage from "./Components/UploadCategory/UploadImage";
 
 function App() {
   const {randomGiff} = useGlobal()

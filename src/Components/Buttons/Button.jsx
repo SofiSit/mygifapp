@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useTheme } from '../context/themeContext';
+import { useTheme } from '../../context/themeContext';
 
 function Button({name, icon, onClick}) {
     const theme = useTheme()

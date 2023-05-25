@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useGlobal } from '../context/global'
-import GiffItem from './GiffItem'
+import { useGlobal } from '../../context/global'
+import GiffItem from '../Giffs/GiffItem'
 import Masonry from 'react-masonry-css'
-import { useTheme } from '../context/themeContext'
-import Loader from './Loader'
+import { useTheme } from '../../context/themeContext'
+import Loader from '../Loader/Loader'
 
 
 const trend = <i className="fa-solid fa-arrow-trend-up"></i>
